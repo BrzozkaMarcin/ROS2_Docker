@@ -12,3 +12,7 @@ Robot:
     - has a simulated way of moving.  
 
 Robot is placed in one container and the robot_station in another.  
+
+```bash
+docker-compose up --build
+```
