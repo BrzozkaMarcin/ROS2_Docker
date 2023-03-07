@@ -4,7 +4,7 @@ services:
   robot:
     build:
       context: .
-      dockerfile: ./DockerfileS
+      dockerfile: ./Dockerfile
     command: ros2 run py_pkg robot
   robot_station:
     build:
