@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  robot:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ros2 run py_pkg robot
+  robot_station:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: ros2 run py_pkg robot_station
+    depends_on:
+      - robot
