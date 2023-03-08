@@ -5,11 +5,11 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: ros2 run py_pkg robot
+    command: ros2 launch robot_bringup only_robot.launch.py
   robot_station:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: ros2 run py_pkg robot_station
+    command: ros2 launch robot_bringup only_robot_station.launch.py
     depends_on:
       - robot
