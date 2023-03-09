@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             "robot_station = py_pkg.robot_station:main",
-            "robot = py_pkg.robot:main"
+            "robot = py_pkg.robot:main",
+            "points_spawner = py_pkg.points_spawner:main"
         ],
     },
 )

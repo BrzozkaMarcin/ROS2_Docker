@@ -3,7 +3,7 @@ import random
 import rclpy
 from rclpy.node import Node
 from robot_interfaces.msg import Point, PointArray
-from robot_interfaces.srv import GainPoint
+from robot_interfaces.srv import GainPoint, SpawnPoints
 
  
 class RobotStation(Node):
@@ -17,11 +17,20 @@ class RobotStation(Node):
         
         self.gain_point_service_ = self.create_service(
             GainPoint, "gain_point", self.callback_gained_point)
+        self.spawn_points_service_ = self.create_service(
+            SpawnPoints, "spawn_points", self.callback_spawn_points)
 
         self.get_logger().info("RobotStation has been started.")
-        self.generate_points()
-        self.timer_ = self.create_timer(10.0, self.publish_points)
-        
+        # self.generate_points()
+        # self.timer_ = self.create_timer(10.0, self.publish_points)
+
+    # Spawn new points
+    def callback_spawn_points(self, request, response):
+        for point in request.points:
+            self.point_list_.append(point)
+        self.publish_points()
+        response.success = True
+        return response
 
     # Generate random points to gain.
     def generate_points(self):

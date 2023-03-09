@@ -14,6 +14,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/PointArray.msg"
   "msg/Pose.msg"
   "srv/GainPoint.srv"
+  "srv/SpawnPoints.srv"
 )
 
 ament_package()
